@@ -1,5 +1,4 @@
 name: Train Student Model
-
 on:
   push:
     branches:
