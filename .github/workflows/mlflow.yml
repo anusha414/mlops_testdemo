@@ -24,6 +24,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: execute mlflow
+        run: |
+          mkdir -p mlruns
+          mlflow server \
+          --host 0.0.0.0 \
+          --port 5000 \
+          --backend-store-uri sqlite:///mlflow.db \
+          --default-artifact-root ./mlruns
+
       - name: Run Training Script
         run: |
           python train_model.py
