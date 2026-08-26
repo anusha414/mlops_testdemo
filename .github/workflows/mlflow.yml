@@ -2,7 +2,7 @@ name: Install mlflow on github runner and add experiment tracking
 on:
   push:
     branches:
-      - model-create
+      - mlflow-demo
 
   workflow_dispatch:
 
