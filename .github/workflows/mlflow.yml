@@ -46,5 +46,5 @@ jobs:
       - name: Upload Trained Model
         uses: actions/upload-artifact@v4
         with:
-          name: student-pass-model
-          path: student_pass_model.pkl
+          name: mlflow-data
+          path: ./mlruns
