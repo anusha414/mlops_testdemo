@@ -49,5 +49,4 @@ with mlflow.start_run():
         sk_model=model,
         artifact_path="model"
     )
-
-    print("Model logged to MLflow successfully")​‌
+    print("Model logged to MLflow successfully")
