@@ -29,12 +29,17 @@ jobs:
         run: |
           python model/train.py
 
-      - name: Run the API
+      - name: Start Flask App
         run: |
-          python app.py
-
-      - name: Upload Trained Model
-        uses: actions/upload-artifact@v4
-        with:
-          name: model
-          path: model/artifacts
+          python app.py > flask.log 2>&1 &
+          sleep 10
+      
+      - name: Verify App Is Running
+        run: |
+          curl http://127.0.0.1:6000
+      
+      - name: Test Prediction API
+        run: |
+          curl -X POST http://127.0.0.1:6000/predict \
+            -H "Content-Type: application/json" \
+            -d '{"text":"I want to cancel my subscription"}'
