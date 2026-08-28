@@ -3,7 +3,7 @@ name: Train Student Model
 on:
   push:
     branches:
-      - main
+      - local-model-deployment
 
   workflow_dispatch:
 
