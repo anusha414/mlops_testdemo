@@ -24,9 +24,12 @@ jobs:
         run: |
           docker build -t image1 .
 
+      - name: Save Docker image
+        run: |
+          docker save image1 -o my-app.tar
+
       - name: upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: ./
-
+          path: ./myapp.tar
