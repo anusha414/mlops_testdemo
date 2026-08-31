@@ -24,6 +24,20 @@ jobs:
         run: |
           docker build -t image1 .
 
+      - name: docker tag
+        run:
+          docker tag image1 anusha414/anusharepo1:2.0
+
+      - name: Docker Hub Login
+        run: |
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login \
+            -u "${{ secrets.DOCKERHUB_USERNAME }}" \
+            --password-stdin
+
+      - name: docker push
+        run: |
+          docker push anusha414/anusharepo1:2.0
+
       - name: Save Docker image
         run: |
           docker save image1 -o my-app.tar
