@@ -36,7 +36,7 @@ jobs:
 
       - name: docker push
         run: |
-          docker push anusha414/anusharepo1:${GITHUB_SHA::7}-${github.run_id}
+          docker push anusha414/anusharepo1:${GITHUB_SHA::7}-${{github.run_id}}
 
       - name: Save Docker image
         run: |
