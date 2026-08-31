@@ -43,7 +43,7 @@ jobs:
           SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c1-7)
           export IMAGE_NAME="${{ secrets.DOCKERHUB_USERNAME }}/anusharepo1:${SHORT_SHA}-${GITHUB_RUN_ID}"
           envsubst < ./k8s/deployment.yaml > ./k8s/deployment.yaml
-          cat deployment.yaml
+          cat .k8s/deployment.yaml
 
       - name: Save Docker image
         run: |
