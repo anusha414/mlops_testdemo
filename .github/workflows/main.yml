@@ -45,6 +45,12 @@ jobs:
           envsubst < ./k8s/deployment.yaml > ./k8s/deployment.yaml.tmp && mv ./k8s/deployment.yaml.tmp ./k8s/deployment.yaml
           cat ./k8s/deployment.yaml
 
+          #To persist across steps
+          # - name: Set variable
+          # run: echo "IMAGE_TAG=v1" >> $GITHUB_ENV
+          # - name: Use variable
+          # run: echo $IMAGE_TAG
+
       - name: Save Docker image
         run: |
           docker save image1 -o my-app.tar
